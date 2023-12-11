@@ -1,0 +1,11 @@
+bool TryGetSelectedEndpoint(out EndpointDescription endpoint)
+        {
+            object item = EndpointCB.SelectedItem;
+            if (item == null || item.GetType() == typeof(string))
+            {
+                endpoint = null;
+                return false;
+            }
+            endpoint = (item as EndpointWrapper).Endpoint;
+            return true;
+        }
